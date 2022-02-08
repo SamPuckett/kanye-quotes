@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(`https://api.kanye.rest`);
   const quote = await res.json();
 
