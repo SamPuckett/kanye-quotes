@@ -108,6 +108,11 @@
   margin-left: 0.5rem;
 }
 
+.button {
+  margin-top: 20px;
+  /* outline: 1px solid red; */
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

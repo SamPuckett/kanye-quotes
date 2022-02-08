@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useState } from "react";
+
+import { Button } from "@mantine/core";
 
 export const getServerSideProps = async () => {
   const res = await fetch(`https://api.kanye.rest`);
@@ -14,6 +17,15 @@ export const getServerSideProps = async () => {
 };
 
 export default function Home({ quote }) {
+  const [stateQuote, setQuote] = useState("");
+
+  const getNewData = async () => {
+    const res = await fetch(`https://api.kanye.rest`);
+    setQuote(await res.json());
+  };
+
+  console.log(stateQuote);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -24,6 +36,17 @@ export default function Home({ quote }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>{quote.quote}</h1>
+        <Button
+          variant="gradient"
+          gradient={{ from: "indigo", to: "cyan" }}
+          size="lg"
+          className={styles.button}
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
+          New Quote
+        </Button>
       </main>
     </div>
   );
