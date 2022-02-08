@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 
-import { Button } from "@mantine/core";
+import { Button, Blockquote } from "@mantine/core";
 
 export const getServerSideProps = async () => {
   const res = await fetch(`https://api.kanye.rest`);
@@ -35,11 +34,11 @@ export default function Home({ quote }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{quote.quote}</h1>
+        <Blockquote cite="– Ye">{quote.quote}</Blockquote>
         <Button
           variant="gradient"
           gradient={{ from: "indigo", to: "cyan" }}
-          size="lg"
+          size="xs"
           className={styles.button}
           onClick={() => {
             window.location.reload();
