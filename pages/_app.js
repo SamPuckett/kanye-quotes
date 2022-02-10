@@ -6,10 +6,7 @@ function MyApp({ Component, pageProps }) {
     <MantineProvider
       withGlobalStyles
       withNormalizeCSS
-      theme={{
-        /** Put your mantine theme override here */
-        colorScheme: "light",
-      }}
+      theme={{ colorScheme: "dark" }}
     >
       <Component {...pageProps} />
     </MantineProvider>
